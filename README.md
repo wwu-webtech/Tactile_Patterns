@@ -11,11 +11,11 @@ The goal of this project is to convert photo to [Tactile Image](https://en.wikip
 ## Example: Input image and output patterns
 
 <p align="center">
-  <img src="tactile_patterns\photos\Old_Main.PNG" width="500">
+  <img src="https://github.com/wwu-webtech/Tactile_Patterns/blob/master/photos/Old_Main.PNG" width="500">
 </p>
 
 <p align="center">
-  <img src="tactile_patterns\output\old_mainbl.jpg" width="500">
+  <img src="https://github.com/wwu-webtech/Tactile_Patterns/blob/master/output/old_mainbl.jpg" width="500">
 </p>
 
 ## After thermo-printing
