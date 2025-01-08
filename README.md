@@ -9,7 +9,7 @@ This is a version of the CLI application viewable [here](https://github.com/wwu-
 2. Run `git clone https://github.com/velo1guy/tactile_patterns_web.git`.
 3. Enter this directory, and in the `azure_tactile` subdirectory, run `python -m venv venv` and your virtual enviornment should be set up.
 4. Once in the venv, run `pip install -r requirements.txt`, and your requirments should be installed. 
-5. Finally, run n`pm install -g azure-functions-core-tools@4 --unsafe-perm true` to install the necessary azure function tools.
+5. Finally, change to the `tactile_astro` directory, and run `npm install -g azure-functions-core-tools@4 --unsafe-perm true` to install the necessary azure function tools.
 
 
 ## Setting up Locally:
