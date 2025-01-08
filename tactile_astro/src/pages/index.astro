@@ -1,65 +1,81 @@
 ---
 ---
-<!--- Form for Image Upload -->
-<form id="image-form">
-  <input type="file" name="image" accept="image/*" required />
-  <button type="submit">Upload Image</button>
-</form>
 
-<!-- Display Processed Image -->
-<div id="processed-image-container" style="display: none;">
-  <h3>Processed Image:</h3>
-  <img id="processed-image" src="" alt="Processed Image" style="max-width: 100%;" />
-</div>
+<html lang="en">
+  <head>
+    <wwu-pre-header></wwu-pre-header>
+    <wwu-header sitename="Tactile Imaging" regioncontent=""></wwu-header>
+  </head>
+  <body>
+    <!--- Form for Image Upload -->
+    <form id="image-form">
+      <input type="file" name="image" accept="image/*" required />
+      <button type="submit">Upload Image</button>
+    </form>
 
-<!-- Display Error Message -->
-<div id="error-message" style="color: red; display: none;"></div>
+    <!-- Display Processed Image -->
+    <div id="processed-image-container" style="display: none;">
+      <h3>Processed Image:</h3>
+      <img id="processed-image" src="" alt="Processed Image" style="max-width: 100%;" />
+    </div>
 
-<!-- JS for Handling Form Submission -->
-<script type="text/javascript">
-  document.addEventListener('DOMContentLoaded', () => {
-    const form = document.getElementById('image-form');
-    const processedImageContainer = document.getElementById('processed-image-container');
-    const errorMessage = document.getElementById('error-message');
-    const processedImage = document.getElementById('processed-image');
+    <!-- Display Error Message -->
+    <div id="error-message" style="color: red; display: none;"></div>
 
-    form.addEventListener('submit', async (event) => {
-      event.preventDefault();
-      errorMessage.style.display = 'none'; // Hide any previous error messages
-      processedImageContainer.style.display = 'none'; // Hide the previous image if it exists
+    <!-- JS for Handling Form Submission -->
+    <script type="text/javascript">
+      document.addEventListener('DOMContentLoaded', () => {
+        const form = document.getElementById('image-form');
+        const processedImageContainer = document.getElementById('processed-image-container');
+        const errorMessage = document.getElementById('error-message');
+        const processedImage = document.getElementById('processed-image');
 
-      const formData = new FormData(form);
+        form.addEventListener('submit', async (event) => {
+          event.preventDefault();
+          errorMessage.style.display = 'none'; // Hide any previous error messages
+          processedImageContainer.style.display = 'none'; // Hide the previous image if it exists
 
-      try {
-        const response = await fetch('http://localhost:7071/api/process-image', {
-          method: 'POST',
-          body: formData,
+          const formData = new FormData(form);
+
+          try {
+            const response = await fetch('http://localhost:7071/api/process-image', {
+              method: 'POST',
+              body: formData,
+            });
+
+            if (!response.ok) {
+              throw new Error('Failed to process the image');
+            }
+
+            const data = await response.json();
+            const processedImageUrl = data.processedImageUrl;
+
+            // Display the processed image
+            processedImage.src = processedImageUrl;
+            processedImageContainer.style.display = 'block';
+          } catch (err) {
+            console.error('Error:', err);
+            errorMessage.textContent = 'An error occurred while processing the image';
+            errorMessage.style.display = 'block';
+          }
         });
+      });
+    </script>
 
-        if (!response.ok) {
-          throw new Error('Failed to process the image');
-        }
+  <footer>
+    <wwu-footer></wwu-footer>     
+  </footer>
 
-        const data = await response.json();
-        const processedImageUrl = data.processedImageUrl;
+  <!--JS files for ASHLAR components -->
+  <script src="https://ashlar.blob.core.windows.net/ashlar-theme-files/js/search.js"></script>
+  <script src="https://ashlar.blob.core.windows.net/ashlar-theme-files/js/pre-header.js"></script>
+  <script src="https://ashlar.blob.core.windows.net/ashlar-theme-files/js/logo.js"></script>
+  <script src="https://ashlar.blob.core.windows.net/ashlar-theme-files/js/wwu-header.js"></script>
+  <script src="https://ashlar.blob.core.windows.net/ashlar-theme-files/js/social-media-icons.js"></script>
+  <script src="https://ashlar.blob.core.windows.net/ashlar-theme-files/js/wwu-footer.js"></script>
+  <script src="https://ashlar.blob.core.windows.net/ashlar-theme-files/js/main-navigation.js"></script>
+  <script src="https://ashlar.blob.core.windows.net/ashlar-theme-files/js/accessible-mega-menu.js"></script>
+  <script src="https://ashlar.blob.core.windows.net/ashlar-theme-files/js/menu-extras.js"></script>
 
-        // Display the processed image
-        processedImage.src = processedImageUrl;
-        processedImageContainer.style.display = 'block';
-      } catch (err) {
-        console.error('Error:', err);
-        errorMessage.textContent = 'An error occurred while processing the image';
-        errorMessage.style.display = 'block';
-      }
-    });
-  });
-</script>
-
-<script src="https://ashlar.blob.core.windows.net/ashlar-theme-files/js/search.js"></script>
-<script src="https://ashlar.blob.core.windows.net/ashlar-theme-files/js/pre-header.js"></script>
-
-<script src="https://ashlar.blob.core.windows.net/ashlar-theme-files/js/logo.js"></script>
-<script src="https://ashlar.blob.core.windows.net/ashlar-theme-files/js/wwu-header.js"></script>
-
-<script src="https://ashlar.blob.core.windows.net/ashlar-theme-files/js/social-media-icons.js"></script>
-<script src="https://ashlar.blob.core.windows.net/ashlar-theme-files/js/wwu-footer.js"></script>
+  </body>
+</html>
