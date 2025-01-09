@@ -17,7 +17,7 @@ This is a version of the CLI application viewable [here](https://github.com/wwu-
 ## Setting up Locally:
 
 As the azure portion needs to use blob storage inorder to function, it's necessary to set this up remotely or replace it with a local directory. 
-1. Go into the tactile_astro directory and run `npm run dev`. This will serve the content to a port that will be given. Note that the post in index.astro will need to be reconfigured to the URL of your azure content (this should be `http://localhost:7071/function_app/main`). 
+1. Go into the tactile_astro directory and run `npm run dev`. This will serve the content to a port that will be given. Note that the post in index.astro will need to be reconfigured to the URL of your azure content (this should be `http://localhost:7071/function_app/main`). If presented with an error, run `npm install` and then `npm run dev` again.
 2. The azure component can be set up by going into the `azure_tactile` directory and making sure the venv is set up as outlined above, run `source venv/bin/activate`. 
 3. Replace the `blob_connection_string` in `function_app.py` with your given blob connection string. 
 4. Configure your local settings json in the `azure_tactile` directory with your given values. If you are running locally, the only thing needing changing will be the blob storage string. 
