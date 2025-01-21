@@ -86,7 +86,6 @@ def process_img(image_path):
 
     # Save image
     cv2.imwrite(output_path, inverse_threshold_map)
-    print("all done :)")
 
 
     return output_path
