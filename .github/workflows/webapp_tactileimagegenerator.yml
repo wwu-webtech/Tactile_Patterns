@@ -7,7 +7,7 @@ name: Build and deploy Python app to Azure Web App - TactileImageGenerator
 on:
   push:
     branches:
-      - webapp
+      - azure_tactile
   workflow_dispatch:
 
 jobs:
