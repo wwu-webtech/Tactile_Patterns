@@ -5,3 +5,5 @@ __pycache__
 .venv
 # Made a tmp dir for testing locally
 tmp 
+.github
+.vscode
