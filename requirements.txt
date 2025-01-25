@@ -4,3 +4,5 @@
 
 azure-functions
 opencv-contrib-python
+opencv-python-headless
+pillow
