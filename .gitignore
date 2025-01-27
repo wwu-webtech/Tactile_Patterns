@@ -3,7 +3,7 @@
 .python_packages
 __pycache__
 .venv
-# Made a tmp dir for testing locally
-tmp 
+# Made a tmp dir for testing locally, still storing images here for time being..
+#tmp 
 .github
 .vscode
