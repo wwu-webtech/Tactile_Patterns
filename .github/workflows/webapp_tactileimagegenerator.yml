@@ -28,6 +28,7 @@ jobs:
           source venv/bin/activate
       
       - name: Install dependencies
+        run: apt-get update
         run: apt-get install libgl1-mesa-glx
         run: apt-get install --reinstall libglib2.0-0 --fix missing
         run: pip install -r requirements.txt
