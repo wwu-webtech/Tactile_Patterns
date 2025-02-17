@@ -29,8 +29,10 @@ jobs:
       
       - name: Install dependencies
         run: apt update -y
+        run: apt upgrade -y
         run: apt install libgl1-mesa-glx -y
-        run: apt install --reinstall libglib2.0-0 --fix missing -y
+        run: apt install libglu1-mesa -y
+        run: apt install libglib2.0-0 -y
         run: pip install -r requirements.txt
         
       # Optional: Add step to run tests here (PyTest, Django test suites, etc.)
