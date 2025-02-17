@@ -1,5 +1,5 @@
 ## What is this?:
-A barebones version of the python backend for testing on azure using a python webapp. Contains an existing folder of images that can be used by running `python -c "from __init__ import process_img;process_img('test_photos/{image.jpg}')"`. This will result in the processed images being in the /tmp directory.
+A barebones version of the python backend for testing on azure using a python webapp. Contains an existing folder of images that can be used by entering the virtual enviornment, then running `python3 -c "from __init__ import process_img;process_img('test_photos/{image.jpg}')"`. This will result in the processed images being in the /tmp directory.
 
 ## Installation:
 
