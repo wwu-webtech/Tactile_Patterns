@@ -28,7 +28,7 @@ jobs:
           source venv/bin/activate
       
       - name: Install dependencies
-        run: apt update -y && apt install libglu1-mesa -y && apt install libgl1-mesa-glx -y && apt install libglib2.0-0 -y pip install -r requirements.txt
+        run: apt update -y && apt install libglu1-mesa libgl1-mesa-glx libglib2.0-0 -y && pip install -r requirements.txt
         #run: apt upgrade -y currently not working
         #run: apt install libgl1-mesa-glx -y
         #run: apt install libglu1-mesa -y
