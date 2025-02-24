@@ -27,8 +27,8 @@ jobs:
           python -m venv venv
           source venv/bin/activate
       
-      - name: Update apt-get
-        run: apt-get update -y && apt-get upgrade
+      #- name: Update apt-get
+      #  run: apt-get update -y && apt-get upgrade
       - name: Install dependenices 
         run: apt install libglu1-mesa libgl1-mesa-glx libglib2.0-0 -y && 
       - name: Install py dependencies
