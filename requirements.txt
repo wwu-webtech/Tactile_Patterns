@@ -4,4 +4,4 @@
 
 azure-functions
 opencv-contrib-python
-pillow
+pillow>=11.3.0
