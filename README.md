@@ -5,10 +5,11 @@ This is a python backend made for testing on the tactile images project's capabi
 ## Local Installation:
 
 1. Start by installing python, which can be found [here](https://www.python.org/downloads/), or by running `sudo apt install python`.
-2. Run `git clone https://github.com/velo1guy/tactile_patterns_web.git`.
+2. Run `git clone https://github.com/wwu-webtech/Tactile_Patterns.git`.
 3. Enter this directory, and in the `azure_tactile` subdirectory, run `python -m venv venv` and your virtual environment should be set up.
 4. Once in the venv, run `pip install -r requirements.txt`, and your requirements should be installed.
-5. Run `python3 -c "from __init__ import process_img;process_img('test_photos/{image.jpg}')"`, and the selected image should be processed, with the new tactile_image located in the processed_images directory.
+5. Create tmp folder for the images to go into, this can be done with `mkdir tmp`.
+5. Run `python3 -c "from __init__ import process_img;process_img('test_photos/{image.jpg}')"`, and the selected image should be processed, with the new tactile_image located in the tmp directory.
 
 ## Remote Deployment Installation:
 
