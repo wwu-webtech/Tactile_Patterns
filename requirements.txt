@@ -3,5 +3,7 @@
 # Manually managing azure-functions-worker may cause unexpected issues
 
 azure-functions
+numpy==1.22.2
+werkzeug==3.0.6
 opencv-contrib-python
 pillow>=11.3.0
