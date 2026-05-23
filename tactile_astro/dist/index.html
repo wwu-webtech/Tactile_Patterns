@@ -1,0 +1,38 @@
+<!DOCTYPE html><!--- Form for Image Upload --><form id="image-form"> <input type="file" name="image" accept="image/*" required> <button type="submit">Upload Image</button> </form> <!-- Display Processed Image --> <div id="processed-image-container" style="display: none;"> <h3>Processed Image:</h3> <img id="processed-image" src="" alt="Processed Image" style="max-width: 100%;"> </div> <!-- Display Error Message --> <div id="error-message" style="color: red; display: none;"></div> <!-- JS for Handling Form Submission --> <script type="text/javascript">
+  document.addEventListener('DOMContentLoaded', () => {
+    const form = document.getElementById('image-form');
+    const processedImageContainer = document.getElementById('processed-image-container');
+    const errorMessage = document.getElementById('error-message');
+    const processedImage = document.getElementById('processed-image');
+
+    form.addEventListener('submit', async (event) => {
+      event.preventDefault();
+      errorMessage.style.display = 'none'; // Hide any previous error messages
+      processedImageContainer.style.display = 'none'; // Hide the previous image if it exists
+
+      const formData = new FormData(form);
+
+      try {
+        const response = await fetch('http://localhost:7071/api/process-image', {
+          method: 'POST',
+          body: formData,
+        });
+
+        if (!response.ok) {
+          throw new Error('Failed to process the image');
+        }
+
+        const data = await response.json();
+        const processedImageUrl = data.processedImageUrl;
+
+        // Display the processed image
+        processedImage.src = processedImageUrl;
+        processedImageContainer.style.display = 'block';
+      } catch (err) {
+        console.error('Error:', err);
+        errorMessage.textContent = 'An error occurred while processing the image';
+        errorMessage.style.display = 'block';
+      }
+    });
+  });
+</script> <script type="module" src="/_astro/index.astro_astro_type_script_index_0_lang.DzVrKJ_1.js"></script> <script type="module" src="/_astro/index.astro_astro_type_script_index_1_lang.D6AJCKDI.js"></script> <script type="module" src="/_astro/index.astro_astro_type_script_index_2_lang.DBH4axb3.js"></script> <script type="module" src="/_astro/index.astro_astro_type_script_index_3_lang.CXPgtk3n.js"></script> <script type="module" src="/_astro/index.astro_astro_type_script_index_4_lang.D3YxTUOa.js"></script> <script type="module" src="/_astro/index.astro_astro_type_script_index_5_lang.B-K_Pm84.js"></script>
